@@ -1,0 +1,121 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.blok {
+    width: 600px;
+    height: 600px;
+    border-block-end: 1px solid #bebcbc;
+    display: flex;
+    gap: 10px;
+}
+
+.header {
+    display: flex;
+    align-items: start;    
+}
+
+.userlogo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ed1111;
+    background-size: contain;
+}
+
+.user {
+    margin-right: auto;
+    display: flex;
+}
+
+.username {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.date {
+    color: #999999;
+}
+
+.burger {
+    color: #999999;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: transparent;
+    transition-duration: 0.4s;
+}
+
+.burger > svg {
+    width: 13px;
+    height: 13px;
+}
+
+.burger:hover {
+    background-color: rgba(157, 153, 153, 0.1);
+}
+
+.post {
+    height: auto;
+}
+
+.content {
+    width: 100%;
+    height: 75%;
+    margin-top: 8px;
+}
+
+.content img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    border: #1f1b1b;
+    
+}
+
+.communication {
+    display: flex;
+    gap: 24px
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    width: 40px;
+    margin-top: 8px;
+
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 0;
+    background-color: transparent;
+    transition-duration: 0.4s;
+   
+     }
+   
+     .btn:hover {
+       background-color: rgba(111, 108, 108, 0.1); 
+     }
+   
+     .btn img {
+       width: 20px;
+       height: 20px;
+       cursor: pointer;
+     }
+
+
+
