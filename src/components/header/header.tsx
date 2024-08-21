@@ -7,6 +7,7 @@ import like from './like.png';
 import search from './search.png';
 import post from './post.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
  const Header = () => {
     return (
@@ -25,7 +26,7 @@ import Image from 'next/image';
             </ul>
 
             <div className={styles.login}>
-                Log in
+                <Link href='/login'> Log in </Link>
             </div>
         </div>
     </nav>
