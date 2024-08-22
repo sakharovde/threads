@@ -12,7 +12,7 @@ export default function Login() {
             <div className={styles.box1}>
                 <div className={styles.boxTitle}>
                     <div>Продолжить с аккаунтом Instagram</div>
-                    <Image src={logo} alt='Logo'></Image>
+                    <Image src={logo} width={32} height={32} alt='Logo'></Image>
                 </div>
                 <div className={styles.mini}>Войдите в профиль Threads или создайте его через аккаунт Instagram. Вы сможете публиковать контент в Threads и взаимодейтсвовать с ним.</div>
             </div>
