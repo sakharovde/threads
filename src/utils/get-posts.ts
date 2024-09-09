@@ -1,36 +1,34 @@
-
 import { faker } from '@faker-js/faker';
 import { cache } from 'react';
 
 export type Post = {
-    id: string;
-    avatar: string;
-    username: string;
-    date: number;
-    text: string;
-    image: string;
+  id: string;
+  avatar: string;
+  username: string;
+  date: number;
+  text: string;
+  image: string;
 };
- const getPosts = cache(() => {
-    
-    const posts: Post[] = Array(20)
+const getPosts = cache(() => {
+  const posts: Post[] = Array(20)
     .fill({
-        id: '',
-        avatar: '',
-        username: '',
-        date: '',
-        text: '',
-        image: '',
+      id: '',
+      avatar: '',
+      username: '',
+      date: '',
+      text: '',
+      image: '',
     })
     .map(() => ({
-        id: faker.database.mongodbObjectId(),
-        avatar: faker.image.avatar(),
-        username: faker.internet.displayName(),
-        date: faker.number.int({min:1, max:10}),
-        text: faker.lorem.paragraph(),
-        image: faker.image.urlLoremFlickr()
-    }));    
+      id: faker.database.mongodbObjectId(),
+      avatar: faker.image.avatar(),
+      username: faker.internet.displayName(),
+      date: faker.number.int({ min: 1, max: 10 }),
+      text: faker.lorem.paragraph(),
+      image: faker.image.urlLoremFlickr(),
+    }));
 
-    return posts;
-})
+  return posts;
+});
 
 export default getPosts;
