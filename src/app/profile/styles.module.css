@@ -1,0 +1,17 @@
+.header {
+  max-width: 572px;
+  margin: 0 auto;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+}
