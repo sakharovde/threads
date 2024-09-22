@@ -9,7 +9,7 @@ export default function Login() {
     <div
       className='h-screen bg-no-repeat flex items-center justify-center text-black'
       style={{
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: `url(${bgImage.src})`,
         backgroundSize: '100% auto',
       }}
     >
@@ -36,7 +36,7 @@ export default function Login() {
             публиковать контент и взаимодейтсвовать с ним.
           </div>
         </div>
-        <div className='text-xs text-zinc-500 flex gap-3 absolute inset-x-0 bottom-0 mx-0 my-auto'>
+        <div className='text-xs text-zinc-500 flex gap-3 absolute inset-x-0 bottom-0 w-screen justify-center '>
           <Link href='/login'>© 2024</Link>
           <Link href='/login'>Условия Threads</Link>
           <Link href='/login'>Политика конфиденциальности</Link>

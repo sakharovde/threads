@@ -12,22 +12,22 @@ const Header = () => {
   return (
     <header>
       <nav className='w-screen min-h-12 mb-8'>
-        <div className='w-full flex items-center content-between inset-x-0 bottom-0 mx-0 my-autos'>
+        <div className='w-full flex items-center content-between inset-x-0 bottom-0'>
           <Image src={iglogo} width={60} height={60} alt='logo'></Image>
-          <ul className='flex-1 list-none text-center cursor-pointer'>
-            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8'>
+          <ul className='flex-1 list-none text-center'>
+            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
               <Image src={home} width={25} height={25} alt='home'></Image>
             </button>
-            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8'>
+            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
               <Image src={search} width={25} height={25} alt='home'></Image>
             </button>
-            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8'>
+            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
               <Image src={post} width={25} height={25} alt='home'></Image>
             </button>
-            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8'>
+            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
               <Image src={like} width={25} height={25} alt='home'></Image>
             </button>
-            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8'>
+            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
               <Image src={human} width={25} height={25} alt='home'></Image>
             </button>
           </ul>
