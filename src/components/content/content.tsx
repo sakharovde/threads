@@ -1,4 +1,3 @@
-import styles from './content.module.css';
 import like from './like2.png';
 import comment from './comment.png';
 import repost from './repost.png';
@@ -7,12 +6,14 @@ import dotsIcon from './dots.svg';
 import Image from 'next/image';
 import { Post } from '@/utils';
 import { FC } from 'react';
+
 type Props = {
   posts: Post[];
 };
+
 const Content: FC<Props> = (props) => {
   return (
-    <div className='w-full h-screen flex flex-col items-center gap-4'>
+    <div className='w-full flex flex-col items-center gap-4 bg-gray-50 text-black'>
       {props.posts.map((post) => (
         <div
           key={post.id}
