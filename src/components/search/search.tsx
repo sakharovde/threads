@@ -8,7 +8,7 @@ import like from './like2.png';
 import comment from './comment.png';
 import repost from './repost.png';
 import share from './share.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Post } from '@/utils';
 import { FC } from 'react';
 import { getPosts } from '@/utils';
@@ -308,18 +308,18 @@ const Posts: FC<Props> = (props) => {
   return (
     <div>
       <div className='w-full text-black flex items-center justify-center space-x-1.5 p-1.5'>
-        <button className='w-1/2 border rounded-xl px-4 py-1.5 size-xs focus:text-white focus:bg-black'>
+        <button className='w-1/2 border rounded-xl px-3 py-1.5 size-xs focus:text-white focus:bg-black'>
           Топ
         </button>
-        <button className='w-1/2 border rounded-xl px-4 py-1.5 size-xs focus:text-white focus:bg-black '>
+        <button className='w-1/2 border rounded-xl px-3 py-1.5 size-xs focus:text-white focus:bg-black '>
           Недавнее
         </button>
       </div>
-      <div className='w-11/12 max-h-max flex flex-col items-center gap-4 text-black p-4'>
+      <div className='w-full max-h-max flex flex-col items-center gap-4 text-black py-1'>
         {props.posts.map((post) => (
           <div
             key={post.id}
-            className='flex gap-2.5'
+            className='flex border-b px-4'
             // style={{
             //   width: '600px',
             //   height: '600px',
@@ -351,7 +351,7 @@ const Posts: FC<Props> = (props) => {
                   alt='ост'
                 ></Image>
               </div>
-              <div className='flex border-b gap-6'>
+              <div className='flex gap-6'>
                 <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
                   <Image src={like} height={20} width={20} alt='like'></Image>
                 </button>
@@ -383,11 +383,19 @@ const Posts: FC<Props> = (props) => {
   );
 };
 const Search = () => {
-  const [searchValue, setSearchValue] = useState('kek');
+  const [searchValue, setSearchValue] = useState('');
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => setPosts(getPosts()), []);
 
   return (
-    <div className='w-screen h-screen flex items-center flex-col bg-gray-50 space-y-6'>
-      <div className='w-1/2 flex items-center flex-col absolute left-1/4 border border-gray-200 rounded-3xl bg-white space-y-4 max-h-max'>
+    <div className='w-screen flex items-center flex-col bg-gray-50 space-y-6'>
+      <div
+        className='flex items-center flex-col justify-center border border-gray-200 rounded-3xl bg-white space-y-4 max-h-max'
+        style={{
+          width: '638px',
+        }}
+      >
         <div className='w-11/12 flex items-center p-2 rounded-3xl border border-gray-200 bg-gray-50 mt-3.5'>
           <Image src={search} height={20} width={20} alt='search' />
           <input

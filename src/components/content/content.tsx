@@ -13,7 +13,7 @@ type Props = {
 
 const Content: FC<Props> = (props) => {
   return (
-    <div className='w-full h-screen flex flex-col items-center gap-4 bg-gray-50 text-black'>
+    <div className='w-full flex flex-col items-center gap-4 bg-gray-50 text-black'>
       {props.posts.map((post) => (
         <div
           key={post.id}
