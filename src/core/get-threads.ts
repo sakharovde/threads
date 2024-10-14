@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-export type Post = {
+export type Thread = {
   id: string;
   avatar: string;
   username: string;
@@ -8,8 +8,8 @@ export type Post = {
   text: string;
   image: string;
 };
-const getPosts = () => {
-  const posts: Post[] = Array(20)
+const getThreads = () => {
+  const posts: Thread[] = Array(20)
     .fill({
       id: '',
       avatar: '',
@@ -30,4 +30,4 @@ const getPosts = () => {
   return posts;
 };
 
-export default getPosts;
+export default getThreads;

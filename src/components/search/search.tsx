@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import search from './search.svg';
 import avatar from './avatar.jpg';
 import Image from 'next/image';
@@ -9,14 +8,10 @@ import comment from './comment.png';
 import repost from './repost.png';
 import share from './share.png';
 import { useEffect, useState } from 'react';
-import { Post } from '@/utils';
+import { httpClient, Thread } from '@/core';
 import { FC } from 'react';
-import { getPosts } from '@/utils';
 
-const posts = getPosts();
-console.log(posts);
-
-const Accaunts = () => {
+const Accounts = () => {
   return (
     <div className='w-11/12 text-black flex flex-col bg-white max-h-max overflow-auto'>
       <div className='text-gray-400 size-xs'>Рекомендуемые подписки</div>
@@ -301,7 +296,7 @@ const Accaunts = () => {
 };
 
 type Props = {
-  posts: Post[];
+  posts: Thread[];
 };
 
 const Posts: FC<Props> = (props) => {
@@ -316,77 +311,88 @@ const Posts: FC<Props> = (props) => {
         </button>
       </div>
       <div className='w-full max-h-max flex flex-col items-center gap-4 text-black py-1'>
-        {props.posts.map((post) => (
-          <div
-            key={post.id}
-            className='flex border-b px-4'
-            // style={{
-            //   width: '600px',
-            //   height: '600px',
-            // }}
-          >
-            <div>
-              <div
-                className='w-9 h-9 rounded-full bg-contain'
-                style={{ backgroundImage: `url(${post.avatar})` }}
-              ></div>
-            </div>
-            <div>
-              <div className='flex items-start'>
-                <div className='mr-auto flex'>
-                  <div className='font-semibold mr-2.5'>{post.username}</div>
-                  <div className='text-gray-300'>{post.date}d.</div>
+        {Array.isArray(props.posts) &&
+          props.posts.map((post) => (
+            <div
+              key={post.id}
+              className='flex border-b px-4'
+              // style={{
+              //   width: '600px',
+              //   height: '600px',
+              // }}
+            >
+              <div>
+                <div
+                  className='w-9 h-9 rounded-full bg-contain'
+                  style={{ backgroundImage: `url(${post.avatar})` }}
+                ></div>
+              </div>
+              <div>
+                <div className='flex items-start'>
+                  <div className='mr-auto flex'>
+                    <div className='font-semibold mr-2.5'>{post.username}</div>
+                    <div className='text-gray-300'>{post.date}d.</div>
+                  </div>
+                  <div className='text-gray-300 w-5 h-5 cursor-pointer flex items-center justify-center rounded-full duration-75 hover:bg-zinc-100'>
+                    <Image src={dotsIcon} height={13} width={13} alt='dots' />
+                  </div>
                 </div>
-                <div className='text-gray-300 w-5 h-5 cursor-pointer flex items-center justify-center rounded-full duration-75 hover:bg-zinc-100'>
-                  <Image src={dotsIcon} height={13} width={13} alt='dots' />
+                <div className='h-auto'>{post.text}</div>
+                <div className='mt-2 rounded-lg'>
+                  <Image
+                    src={post.image}
+                    style={{ borderRadius: '10px' }}
+                    height={400}
+                    width={400}
+                    alt='ост'
+                  ></Image>
+                </div>
+                <div className='flex gap-6'>
+                  <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
+                    <Image src={like} height={20} width={20} alt='like'></Image>
+                  </button>
+                  <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
+                    <Image
+                      src={comment}
+                      height={18}
+                      width={18}
+                      alt='comments'
+                    ></Image>
+                  </button>
+                  <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
+                    <Image
+                      src={repost}
+                      height={18}
+                      width={18}
+                      alt='repost'
+                    ></Image>
+                  </button>
+                  <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
+                    <Image
+                      src={share}
+                      height={18}
+                      width={18}
+                      alt='share'
+                    ></Image>
+                  </button>
                 </div>
               </div>
-              <div className='h-auto'>{post.text}</div>
-              <div className='mt-2 rounded-lg'>
-                <Image
-                  src={post.image}
-                  style={{ borderRadius: '10px' }}
-                  height={400}
-                  width={400}
-                  alt='ост'
-                ></Image>
-              </div>
-              <div className='flex gap-6'>
-                <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                  <Image src={like} height={20} width={20} alt='like'></Image>
-                </button>
-                <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                  <Image
-                    src={comment}
-                    height={18}
-                    width={18}
-                    alt='comments'
-                  ></Image>
-                </button>
-                <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                  <Image
-                    src={repost}
-                    height={18}
-                    width={18}
-                    alt='repost'
-                  ></Image>
-                </button>
-                <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                  <Image src={share} height={18} width={18} alt='share'></Image>
-                </button>
-              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
 };
-const Search = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [posts, setPosts] = useState<Post[]>([]);
 
-  useEffect(() => setPosts(getPosts()), []);
+const Search: FC = () => {
+  const [searchValue, setSearchValue] = useState('');
+  const [posts, setPosts] = useState<Thread[]>([]);
+
+  useEffect(() => {
+    httpClient<Thread[]>('/api/threads')
+      .then((response) => response.data)
+      .then(setPosts);
+  }, []);
 
   return (
     <div className='w-screen flex items-center flex-col bg-gray-50 space-y-6'>
@@ -407,7 +413,7 @@ const Search = () => {
             onChange={(event) => setSearchValue(event.target.value)}
           />
         </div>
-        {!searchValue ? <Accaunts /> : <Posts posts={posts} />}
+        {!searchValue ? <Accounts /> : <Posts posts={posts} />}
       </div>
     </div>
   );

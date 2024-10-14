@@ -1,14 +1,11 @@
 import { Content, Header } from '@/components';
-import { getPosts } from '@/utils';
 
-export default function Home() {
-  const posts = getPosts();
-  console.log(posts);
+export default async function Home() {
   return (
     <div>
       <Header />
       <main>
-        <Content posts={posts} />
+        <Content />
       </main>
     </div>
   );

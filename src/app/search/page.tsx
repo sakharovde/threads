@@ -1,6 +1,6 @@
-import { Search, Header, Footer } from '@/components';
+import { Search, Header } from '@/components';
 
-export default function SearchPage() {
+export default async function SearchPage() {
   return (
     <div>
       <Header />
