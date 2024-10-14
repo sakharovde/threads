@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker';
-import { cache } from 'react';
 
 export type Post = {
   id: string;
@@ -9,7 +8,7 @@ export type Post = {
   text: string;
   image: string;
 };
-const getPosts = cache(() => {
+const getPosts = () => {
   const posts: Post[] = Array(20)
     .fill({
       id: '',
@@ -29,6 +28,6 @@ const getPosts = cache(() => {
     }));
 
   return posts;
-});
+};
 
 export default getPosts;
