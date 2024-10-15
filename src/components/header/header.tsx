@@ -30,9 +30,11 @@ const Header = () => {
             <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
               <Image src={like} width={25} height={25} alt='home'></Image>
             </button>
-            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
-              <Image src={human} width={25} height={25} alt='home'></Image>
-            </button>
+            <Link href='/profile'>
+              <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
+                <Image src={human} width={25} height={25} alt='home'></Image>
+              </button>
+            </Link>
           </ul>
           <div className='rounded-xl bg-black text-white py-1 px-5 cursor-pointer'>
             <Link href='/login'> Log in </Link>
