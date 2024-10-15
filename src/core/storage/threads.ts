@@ -1,4 +1,4 @@
-import getThreads from '@/core/get-threads';
+import getThreads from '@/core/generators/get-threads';
 
 const threads = getThreads();
 
