@@ -10,8 +10,8 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <header>
-      <nav className='w-screen min-h-12 bg-gray-50'>
-        <div className='w-full flex items-center content-between inset-x-0 bottom-0'>
+      <nav className='min-h-12 bg-gray-50'>
+        <div className='flex items-center content-between px-3 pr-5'>
           <Image src={iglogo} width={60} height={60} alt='logo'></Image>
           <ul className='flex-1 list-none text-center'>
             <Link href='/'>

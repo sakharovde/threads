@@ -13,7 +13,7 @@ import { FC } from 'react';
 
 const Accounts = () => {
   return (
-    <div className='w-11/12 text-black flex flex-col bg-white max-h-max overflow-auto'>
+    <div className='text-black flex flex-col bg-white max-h-max overflow-auto'>
       <div className='text-gray-400 size-xs'>Рекомендуемые подписки</div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
@@ -315,7 +315,7 @@ const Posts: FC<Props> = (props) => {
           props.posts.map((post) => (
             <div
               key={post.id}
-              className='flex border-b px-4'
+              className='flex py-3 gap-3 px-6 border-b'
               // style={{
               //   width: '600px',
               //   height: '600px',
@@ -395,26 +395,19 @@ const Search: FC = () => {
   }, []);
 
   return (
-    <div className='w-screen flex items-center flex-col bg-gray-50 space-y-6'>
-      <div
-        className='flex items-center flex-col justify-center border border-gray-200 rounded-3xl bg-white space-y-4 max-h-max'
-        style={{
-          width: '638px',
-        }}
-      >
-        <div className='w-11/12 flex items-center p-2 rounded-3xl border border-gray-200 bg-gray-50 mt-3.5'>
-          <Image src={search} height={20} width={20} alt='search' />
-          <input
-            className='w-full text-base text-gray-500 ml-3.5 bg-gray-50 outline-none border-none'
-            type='text'
-            name=''
-            placeholder='Search'
-            value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
-          />
-        </div>
-        {!searchValue ? <Accounts /> : <Posts posts={posts} />}
+    <div className='rounded-xl bg-white max-h-max px-6'>
+      <div className='flex items-center p-2 rounded-3xl border border-gray-200 bg-gray-50 my-3.5'>
+        <Image src={search} height={20} width={20} alt='search' />
+        <input
+          className='w-full text-base text-gray-500 ml-3.5 bg-gray-50 outline-none border-none'
+          type='text'
+          name=''
+          placeholder='Search'
+          value={searchValue}
+          onChange={(event) => setSearchValue(event.target.value)}
+        />
       </div>
+      {!searchValue ? <Accounts /> : <Posts posts={posts} />}
     </div>
   );
 };
