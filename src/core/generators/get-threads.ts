@@ -1,15 +1,8 @@
 import { faker } from '@faker-js/faker';
+import { Thread } from '..';
 
-export type Thread = {
-  id: string;
-  avatar: string;
-  username: string;
-  date: number;
-  text: string;
-  image: string;
-};
 const getThreads = () => {
-  const posts: Thread[] = Array(20)
+  const threads: Thread[] = Array(20)
     .fill({
       id: '',
       avatar: '',
@@ -27,7 +20,7 @@ const getThreads = () => {
       image: faker.image.urlLoremFlickr(),
     }));
 
-  return posts;
+  return threads;
 };
 
 export default getThreads;

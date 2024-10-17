@@ -18,16 +18,16 @@ const Content: FC = () => {
   }, []);
 
   return (
-    <div className='w-full flex flex-col items-center gap-4 bg-gray-50 text-black'>
+    <div className='flex flex-col items-center bg-white text-black rounded-xl'>
       {Array.isArray(posts) &&
         posts.map((post) => (
           <div
             key={post.id}
-            className='flex gap-2.5'
-            style={{
-              width: '600px',
-              height: '600px',
-            }}
+            className='flex py-3 gap-3 px-6 border-b'
+            // style={{
+            //   width: '600px',
+            //   height: '600px',
+            // }}
           >
             <div>
               <div
@@ -46,8 +46,9 @@ const Content: FC = () => {
                 </div>
               </div>
               <div className='h-auto'>{post.text}</div>
-              <div className='w-full h-3/4 mt-2 rounded-lg'>
+              <div className='w-full mt-2'>
                 <Image
+                  className='rounded-lg'
                   src={post.image}
                   style={{ borderRadius: '10px' }}
                   height={600}
@@ -55,7 +56,7 @@ const Content: FC = () => {
                   alt='ост'
                 ></Image>
               </div>
-              <div className='flex border-b gap-6'>
+              <div className='flex gap-6'>
                 <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
                   <Image src={like} height={20} width={20} alt='like'></Image>
                 </button>
