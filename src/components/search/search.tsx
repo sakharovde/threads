@@ -1,14 +1,13 @@
 'use client';
 import search from './search.svg';
 import avatar from './avatar.jpg';
-import Image from 'next/image';
 import dotsIcon from './dots.svg';
 import like from './like2.png';
 import comment from './comment.png';
 import repost from './repost.png';
 import share from './share.png';
 import { useEffect, useState } from 'react';
-import { httpClient, Thread } from '@/core';
+import { httpClient, storage, Thread } from '@/core';
 import { FC } from 'react';
 
 const Accounts = () => {
@@ -17,7 +16,7 @@ const Accounts = () => {
       <div className='text-gray-400 size-xs'>Рекомендуемые подписки</div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -40,7 +39,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -63,7 +62,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -86,7 +85,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -109,7 +108,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -132,7 +131,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -155,7 +154,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -178,7 +177,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -201,7 +200,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -224,7 +223,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -247,7 +246,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -270,7 +269,7 @@ const Accounts = () => {
       </div>
       <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
         <div className='flex content-center'>
-          <Image
+          <img
             className='rounded-full'
             src={avatar}
             height={36}
@@ -334,46 +333,36 @@ const Posts: FC<Props> = (props) => {
                     <div className='text-gray-300'>{post.date}d.</div>
                   </div>
                   <div className='text-gray-300 w-5 h-5 cursor-pointer flex items-center justify-center rounded-full duration-75 hover:bg-zinc-100'>
-                    <Image src={dotsIcon} height={13} width={13} alt='dots' />
+                    <img src={dotsIcon} height={13} width={13} alt='dots' />
                   </div>
                 </div>
                 <div className='h-auto'>{post.text}</div>
                 <div className='mt-2 rounded-lg'>
-                  <Image
+                  <img
                     src={post.image}
                     style={{ borderRadius: '10px' }}
                     height={400}
                     width={400}
                     alt='ост'
-                  ></Image>
+                  ></img>
                 </div>
                 <div className='flex gap-6'>
                   <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                    <Image src={like} height={20} width={20} alt='like'></Image>
+                    <img src={like} height={20} width={20} alt='like'></img>
                   </button>
                   <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                    <Image
+                    <img
                       src={comment}
                       height={18}
                       width={18}
                       alt='comments'
-                    ></Image>
+                    ></img>
                   </button>
                   <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                    <Image
-                      src={repost}
-                      height={18}
-                      width={18}
-                      alt='repost'
-                    ></Image>
+                    <img src={repost} height={18} width={18} alt='repost'></img>
                   </button>
                   <button className='flex justify-center items-center w-10 h-10 mt-2 text-lg cursor-pointer rounded-full px-2.5 py-0 hover:bg-zinc-100'>
-                    <Image
-                      src={share}
-                      height={18}
-                      width={18}
-                      alt='share'
-                    ></Image>
+                    <img src={share} height={18} width={18} alt='share'></img>
                   </button>
                 </div>
               </div>
@@ -386,18 +375,12 @@ const Posts: FC<Props> = (props) => {
 
 const Search: FC = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [posts, setPosts] = useState<Thread[]>([]);
-
-  useEffect(() => {
-    httpClient<Thread[]>('/api/threads')
-      .then((response) => response.data)
-      .then(setPosts);
-  }, []);
+  const [posts] = useState<Thread[]>(storage.threads);
 
   return (
     <div className='rounded-xl bg-white max-h-max px-6'>
       <div className='flex items-center p-2 rounded-3xl border border-gray-200 bg-gray-50 my-3.5'>
-        <Image src={search} height={20} width={20} alt='search' />
+        <img src={search} height={20} width={20} alt='search' />
         <input
           className='w-full text-base text-gray-500 ml-3.5 bg-gray-50 outline-none border-none'
           type='text'

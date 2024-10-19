@@ -1,12 +1,12 @@
-import { Container, Content, Header } from '@/components';
+import { Search, Header, Container } from '@/components';
 
-export default async function Home() {
+export default function SearchPage() {
   return (
     <div>
       <Header />
       <main className='py-4 bg-gray-50'>
         <Container>
-          <Content />
+          <Search />
         </Container>
       </main>
     </div>
