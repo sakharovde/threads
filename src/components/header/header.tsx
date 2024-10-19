@@ -4,40 +4,39 @@ import human from './human.png';
 import like from './like.png';
 import search from './search.png';
 import post from './post.png';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header>
       <nav className='min-h-12 bg-gray-50'>
         <div className='flex items-center content-between px-3 pr-5'>
-          <Image src={iglogo} width={60} height={60} alt='logo'></Image>
+          <img src={iglogo} width={60} height={60} alt='logo'></img>
           <ul className='flex-1 list-none text-center'>
-            <Link href='/'>
+            <Link to='/'>
               <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
-                <Image src={home} width={25} height={25} alt='home'></Image>
+                <img src={home} width={25} height={25} alt='home'></img>
               </button>
             </Link>
-            <Link href='/search'>
+            <Link to='/search'>
               <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
-                <Image src={search} width={25} height={25} alt='home'></Image>
+                <img src={search} width={25} height={25} alt='home'></img>
               </button>
             </Link>
             <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
-              <Image src={post} width={25} height={25} alt='home'></Image>
+              <img src={post} width={25} height={25} alt='home'></img>
             </button>
             <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
-              <Image src={like} width={25} height={25} alt='home'></Image>
+              <img src={like} width={25} height={25} alt='home'></img>
             </button>
-            <Link href='/profile'>
+            <Link to='/profile'>
               <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
-                <Image src={human} width={25} height={25} alt='home'></Image>
+                <img src={human} width={25} height={25} alt='home'></img>
               </button>
             </Link>
           </ul>
           <div className='rounded-xl bg-black text-white py-1 px-5 cursor-pointer'>
-            <Link href='/login'> Log in </Link>
+            <Link to='/login'> Log in </Link>
           </div>
         </div>
       </nav>
