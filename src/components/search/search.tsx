@@ -6,8 +6,8 @@ import like from './like2.png';
 import comment from './comment.png';
 import repost from './repost.png';
 import share from './share.png';
-import { useEffect, useState } from 'react';
-import { httpClient, storage, Thread } from '@/core';
+import { useState } from 'react';
+import { storage, Thread } from '@/core';
 import { FC } from 'react';
 
 const Accounts = () => {
