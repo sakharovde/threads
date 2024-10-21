@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Thread } from '..';
+import { Thread } from '../types/thread';
 
 const getThreads = () => {
   const threads: Thread[] = Array(20)

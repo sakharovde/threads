@@ -1,19 +1,21 @@
 'use client';
-import { Container, Content, Header } from '@/components';
+import { Container, Header } from '@/components';
 import MoreIcon from './more-icon';
 import InstagramIcon from './instagram-icon';
 import { FC, useState } from 'react';
-import { Profile } from '@/core';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import profileStorage from '@/core/storage/profile.ts';
+import storage from '@/core/storage';
+import { Profile } from '@/core/types/profile';
+import Thread from '@/components/thread/thread';
+import ThreadBranch from '@/components/thread-branch';
 
 type ProfilePageWidgetProps = {
   activeTab: 'threads' | 'replies' | 'reposts';
 };
 
 const ProfilePageWidget: FC<ProfilePageWidgetProps> = (props) => {
-  const [profile] = useState<Profile | null>(profileStorage);
+  const [profile] = useState<Profile | null>(storage.profile);
 
   if (!profile) {
     return null;
@@ -120,8 +122,34 @@ const ProfilePageWidget: FC<ProfilePageWidgetProps> = (props) => {
             </Link>
           </div>
 
-          <div>
-            <Content />
+          <div data-id='content'>
+            <div className='flex flex-col items-center bg-white text-black rounded-xl'>
+              {props.activeTab === 'threads' &&
+                storage.threads.map((thread) => (
+                  <div key={thread.id} className='py-3 px-6 border-b'>
+                    <Thread data={thread} />
+                  </div>
+                ))}
+
+              {props.activeTab === 'replies' && (
+                <>
+                  <div className='py-3 px-6 border-b'>
+                    <ThreadBranch
+                      thread={storage.threads[0]}
+                      replies={[storage.threads[1], storage.threads[2]]}
+                    />
+                  </div>
+                  <div className='py-3 px-6 border-b'>
+                    <ThreadBranch
+                      thread={storage.threads[0]}
+                      replies={[storage.threads[1], storage.threads[2]]}
+                    />
+                  </div>
+                </>
+              )}
+
+              {props.activeTab === 'reposts' && <div>kek</div>}
+            </div>
           </div>
         </Container>
       </main>

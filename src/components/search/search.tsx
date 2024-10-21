@@ -7,8 +7,9 @@ import comment from './comment.png';
 import repost from './repost.png';
 import share from './share.png';
 import { useState } from 'react';
-import { storage, Thread } from '@/core';
+import storage from '@/core/storage';
 import { FC } from 'react';
+import { Thread } from '@/core/types/thread';
 
 const Accounts = () => {
   return (

@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Profile } from '../interfaces/profile';
+import { Profile } from '../types/profile';
 
 export default (): Profile => ({
   id: faker.database.mongodbObjectId(),
