@@ -1,6 +1,5 @@
 'use client';
 import search from './search.svg';
-import avatar from './avatar.jpg';
 import dotsIcon from './dots.svg';
 import like from './like2.png';
 import comment from './comment.png';
@@ -11,292 +10,47 @@ import storage from '@/core/storage';
 import { FC } from 'react';
 import { Thread } from '@/core/types/thread';
 
-const Accounts = () => {
+type Props = {
+  posts: Thread[];
+};
+
+const Accounts: FC<Props> = (props) => {
   return (
     <div className='text-black flex flex-col bg-white max-h-max overflow-auto'>
       <div className='text-gray-400 size-xs'>Рекомендуемые подписки</div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>anastaaashen</div>
-            <div className='text-gray-400'>Анастасия</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>kirill23</div>
-            <div className='text-gray-400'>Кирилл</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>anastaaashen</div>
-            <div className='text-gray-400'>Анастасия</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>Airy45</div>
-            <div className='text-gray-400'>Айри</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>anastaaashen</div>
-            <div className='text-gray-400'>Анастасия</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>anasta</div>
-            <div className='text-gray-400'>Вася</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>toprig</div>
-            <div className='text-gray-400'>Андрей</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>agton</div>
-            <div className='text-gray-400'>Антон</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>agton</div>
-            <div className='text-gray-400'>Антон</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>agton</div>
-            <div className='text-gray-400'>Антон</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>agton</div>
-            <div className='text-gray-400'>Антон</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className='flex items-start mt-1.5 pl-1.5 cursor-pointer'>
-        <div className='flex content-center'>
-          <img
-            className='rounded-full'
-            src={avatar}
-            height={36}
-            width={36}
-            alt='avatar'
-          />
-        </div>
-        <div className='w-full border-b flex '>
-          <div className='w-full flex flex-col content-center ml-3 text-sm'>
-            <div className='font-bold hover:underline'>agton</div>
-            <div className='text-gray-400'>Антон</div>
-            <div className='text-black my-1'>99 подписчиков</div>
-          </div>
-          <div className='text-black flex items-center justify-center'>
-            <button className='border rounded-xl px-4 py-1.5 size-xs'>
-              Подписаться
-            </button>
-          </div>
-        </div>
+      <div className='flex flex-col items-start mt-1.5 pl-1.5 cursor-pointer'>
+        {Array.isArray(props.posts) &&
+          props.posts.map((post) => (
+            <div key={post.id}>
+              <div className='flex pt-4'>
+                <div className='flex items-start '>
+                  <img
+                    className='w-9 h-9 rounded-full bg-contain'
+                    style={{ backgroundImage: `url(${post.avatar})` }}
+                  />
+                </div>
+                <div className='flex flex-col'>
+                  <div className='flex items-center'>
+                    <div className='flex flex-col content-center ml-3 text-sm w-96'>
+                      <div className='font-bold hover:underline'>
+                        {post.username}
+                      </div>
+                      <div className='text-gray-400'>{post.name}</div>
+                    </div>
+                    <button className='border rounded-xl px-4 py-1.5 size-xs ml-auto font-medium'>
+                      Подписаться
+                    </button>
+                  </div>
+                  <div className='flex items-center border-b text-black ml-3 py-1.5'>
+                    {post.date} подписчиков
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
-};
-
-type Props = {
-  posts: Thread[];
 };
 
 const Posts: FC<Props> = (props) => {
@@ -338,7 +92,7 @@ const Posts: FC<Props> = (props) => {
                   </div>
                 </div>
                 <div className='h-auto'>{post.text}</div>
-                <div className='mt-2 rounded-lg'>
+                <div className='mt-2 rounded-lg '>
                   <img
                     src={post.image}
                     style={{ borderRadius: '10px' }}
@@ -391,7 +145,7 @@ const Search: FC = () => {
           onChange={(event) => setSearchValue(event.target.value)}
         />
       </div>
-      {!searchValue ? <Accounts /> : <Posts posts={posts} />}
+      {!searchValue ? <Accounts posts={posts} /> : <Posts posts={posts} />}
     </div>
   );
 };

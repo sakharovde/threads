@@ -5,7 +5,6 @@ import ProfilePageWidget from '@/pages/profile/page-widget.tsx';
 import HomePage from '@/pages/home/page.tsx';
 import LoginPage from '@/pages/login/page.tsx';
 import SearchPage from '@/pages/search/page.tsx';
-
 const router = createBrowserRouter([
   {
     path: '/',

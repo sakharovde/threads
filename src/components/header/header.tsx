@@ -5,8 +5,12 @@ import like from './like.png';
 import search from './search.png';
 import post from './post.png';
 import { Link } from 'react-router-dom';
+import Modal from '../modal-post/modal-post';
+import { useState } from 'react';
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <header>
       <nav className='min-h-12 bg-gray-50'>
@@ -23,7 +27,10 @@ const Header = () => {
                 <img src={search} width={25} height={25} alt='home'></img>
               </button>
             </Link>
-            <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
+            <button
+              className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'
+              onClick={() => setShowModal(true)}
+            >
               <img src={post} width={25} height={25} alt='home'></img>
             </button>
             <button className='inline-block rounded-lg hover:bg-zinc-100 py-4 px-8 cursor-pointer'>
@@ -40,6 +47,16 @@ const Header = () => {
           </div>
         </div>
       </nav>
+      {showModal && (
+        <div
+          onClick={(event) => {
+            event.stopPropagation();
+            setShowModal(false);
+          }}
+        >
+          <Modal />
+        </div>
+      )}
     </header>
   );
 };

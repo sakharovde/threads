@@ -36,7 +36,7 @@ const Thread: FC<Props> = (props) => {
         <div className='h-auto'>{props.data.text}</div>
         <div className='w-full mt-2'>
           <img
-            className='rounded-lg max-h-[500px]'
+            className='rounded-lg max-w-[500px] max-h-[500px]'
             src={props.data.image}
             style={{ borderRadius: '10px' }}
             alt='ост'
