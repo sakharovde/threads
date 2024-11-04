@@ -48,13 +48,8 @@ const Header = () => {
         </div>
       </nav>
       {showModal && (
-        <div
-          onClick={(event) => {
-            event.stopPropagation();
-            setShowModal(false);
-          }}
-        >
-          <Modal />
+        <div>
+          <Modal onClose={() => setShowModal(false)} />
         </div>
       )}
     </header>

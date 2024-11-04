@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Profile } from '@/core/types/profile';
 import storage from '@/core/storage';
 import foto from './foto.png';
@@ -6,7 +6,11 @@ import hashtag from './hashtag.png';
 import lines from './lines.png';
 import gif from './gif.png';
 
-const Modal = () => {
+type Props = {
+  onClose: () => void;
+};
+
+const Modal: FC<Props> = (props) => {
   const [profile] = useState<Profile | null>(storage.profile);
 
   if (!profile) {
@@ -14,7 +18,11 @@ const Modal = () => {
   }
 
   return (
-    <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black  bg-opacity-40'>
+    <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center'>
+      <div
+        className='absolute top-0 left-0 w-full h-full bg-black bg-opacity-40'
+        onClick={props.onClose}
+      />
       <div
         className='relative rounded-2xl border bg-white flex flex-col'
         style={{
