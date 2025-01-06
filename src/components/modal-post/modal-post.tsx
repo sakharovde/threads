@@ -32,7 +32,7 @@ const Modal: FC<Props> = (props) => {
       >
         <div className='w-full h-14 border-b flex items-center '>
           <div className='w-24 pl-6 text-[17px] cursor-pointer'>
-            <button>Отмена</button>
+            <button onClick={props.onClose}>Отмена</button>
           </div>
           <div className='mx-auto w-44 text-[16px] font-semibold'>
             Новая ветка
