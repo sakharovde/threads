@@ -9,6 +9,7 @@ import storage from '@/core/storage';
 import { Profile } from '@/core/types/profile';
 import Thread from '@/components/thread/thread';
 import ThreadBranch from '@/components/thread-branch';
+import Modal from './modal-followers';
 
 type ProfilePageWidgetProps = {
   activeTab: 'threads' | 'replies' | 'reposts';
@@ -16,7 +17,7 @@ type ProfilePageWidgetProps = {
 
 const ProfilePageWidget: FC<ProfilePageWidgetProps> = (props) => {
   const [profile] = useState<Profile | null>(storage.profile);
-
+  const [showModal, setShowModal] = useState(false);
   if (!profile) {
     return null;
   }
@@ -58,8 +59,13 @@ const ProfilePageWidget: FC<ProfilePageWidgetProps> = (props) => {
             </div>
 
             <div className='flex justify-between'>
-              <div className='pb-3 text-gray-400 text-[15px] font-light flex'>
-                {profile.followers} followers
+              <div
+                className='pb-3 text-gray-400 text-[15px] font-light flex cursor-pointer'
+                onClick={() => setShowModal(true)}
+              >
+                <div className='hover:underline'>
+                  {profile.followers} followers
+                </div>
                 <span className='px-[6px]'>·</span>
                 {profile.username}
               </div>
@@ -153,6 +159,11 @@ const ProfilePageWidget: FC<ProfilePageWidgetProps> = (props) => {
           </div>
         </Container>
       </main>
+      {showModal && (
+        <div>
+          <Modal onClose={() => setShowModal(false)} />
+        </div>
+      )}
     </div>
   );
 };
